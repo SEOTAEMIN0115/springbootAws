@@ -13,30 +13,27 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.web.servlet.MockMvc;
 
-@WebMvcTest(controllers = HelloController.class)
-class HelloControllerTest {
+@WebMvcTest(HelloController.class) //@RunWith
+public class HelloControllerTest {
 
     @Autowired
     private MockMvc mvc;
 
-    @DisplayName("hello가 리턴된다")
     @Test
-    void helloReturn() throws Exception {
-        // given
+    void hello가_리턴된다() throws Exception {
+        //given
         String hello = "hello";
-        // when // then
+        //when
         mvc.perform(get("/hello"))
+                //then
                 .andExpect(status().isOk())
                 .andExpect(content().string(hello));
     }
 
-    @DisplayName("helloDto가 리턴된다")
     @Test
-    void helloDtoReturn() throws Exception {
-        // given
+    void helloDto가_리턴된다() throws Exception {
         String name = "hello";
         int amount = 1000;
-        // when // then
         mvc.perform(
                         get("/hello/dto")
                                 .param("name", name)
