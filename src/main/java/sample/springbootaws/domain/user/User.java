@@ -11,6 +11,7 @@ import sample.springbootaws.domain.BaseTimeEntity;
 @Entity
 @Getter
 @NoArgsConstructor
+@Table(name = "users")
 public class User extends BaseTimeEntity {
 
     @Id
